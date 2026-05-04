@@ -1,0 +1,16 @@
+{
+  "name": "api-jogos",
+  "version": "1.0.0",
+  "description": "API para gerenciamento de jogos e empréstimos",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": ["api", "jogos", "emprestimos", "node", "express"],
+  "author": "Vitoria Queiroz Ramos",
+  "license": "MIT"
+}
