@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "nome": "Rex",
+    "especie": "Cachorro",
+    "preco": 500,
+    "disponivel": true
+  }
+]

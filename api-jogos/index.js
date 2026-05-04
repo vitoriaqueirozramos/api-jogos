@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas
-const jogosRoutes = require('./routes/jogos');
-const emprestimosRoutes = require('./routes/emprestimos');
+const animaisRoutes = require('./routes/animais');
+const vendasRoutes = require('./routes/vendas');
 
-app.use('/api/jogos', jogosRoutes);
-app.use('/api/emprestimos', emprestimosRoutes);
+app.use('/api/animais', animaisRoutes);
+app.use('/api/vendas', vendasRoutes);
 
 // Rota raiz
 app.get('/', (req, res) => {

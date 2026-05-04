@@ -7,38 +7,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Gerenciamento de Jogos e Empréstimos</h1>
+  <h1>Gerenciamento de Animais e Vendas</h1>
 
-  <section id="jogos">
-    <h2>Jogos</h2>
-    <button id="carregarJogos">Carregar Jogos</button>
-    <ul id="listaJogos"></ul>
+  <section id="animais">
+    <h2>Animais</h2>
+    <button id="carregarAnimais">Carregar Animais</button>
+    <ul id="listaAnimais"></ul>
 
-    <h3>Cadastrar Novo Jogo</h3>
-    <form id="formJogo">
-      <input type="text" id="titulo" placeholder="Título" required>
-      <input type="text" id="genero" placeholder="Gênero" required>
-      <input type="number" id="ano" placeholder="Ano" required>
+    <h3>Cadastrar Novo Animal</h3>
+    <form id="formAnimal">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="text" id="especie" placeholder="Espécie" required>
+      <input type="number" id="preco" step="0.01" placeholder="Preço" required>
       <label><input type="checkbox" id="disponivel"> Disponível</label>
       <button type="submit">Cadastrar</button>
     </form>
-    <div id="mensagemJogo"></div>
+    <div id="mensagemAnimal"></div>
   </section>
 
-  <section id="emprestimos">
-    <h2>Empréstimos</h2>
-    <button id="carregarEmprestimos">Carregar Empréstimos</button>
-    <ul id="listaEmprestimos"></ul>
+  <section id="vendas">
+    <h2>Vendas</h2>
+    <button id="carregarVendas">Carregar Vendas</button>
+    <ul id="listaVendas"></ul>
 
-    <h3>Cadastrar Novo Empréstimo</h3>
-    <form id="formEmprestimo">
-      <input type="number" id="jogoId" placeholder="ID do Jogo" required>
-      <input type="text" id="usuario" placeholder="Usuário" required>
-      <input type="date" id="dataEmprestimo" required>
-      <label><input type="checkbox" id="devolvido"> Devolvido</label>
+    <h3>Cadastrar Nova Venda</h3>
+    <form id="formVenda">
+      <input type="number" id="animalId" placeholder="ID do Animal" required>
+      <input type="text" id="cliente" placeholder="Cliente" required>
+      <input type="date" id="dataVenda" required>
+      <input type="number" id="quantidade" placeholder="Quantidade" required>
       <button type="submit">Cadastrar</button>
     </form>
-    <div id="mensagemEmprestimo"></div>
+    <div id="mensagemVenda"></div>
   </section>
 
   <script src="app.js"></script>

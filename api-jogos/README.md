@@ -1,6 +1,6 @@
-# API Jogos
+# API Animais
 
-Este projeto é uma aplicação full-stack para gerenciamento de jogos e empréstimos, desenvolvida com Node.js, Express e front-end em HTML/CSS/JavaScript.
+Este projeto é uma aplicação full-stack para gerenciamento de animais e vendas, desenvolvida com Node.js, Express e front-end em HTML/CSS/JavaScript.
 
 ## Tecnologias Usadas
 
@@ -30,19 +30,19 @@ Este projeto é uma aplicação full-stack para gerenciamento de jogos e emprés
 
 ## Endpoints da API
 
-### Jogos
-- `GET /api/jogos` - Listar todos os jogos
-- `GET /api/jogos/:id` - Buscar jogo por ID
-- `POST /api/jogos` - Criar novo jogo (campos: titulo, genero, ano, disponivel)
-- `PUT /api/jogos/:id` - Atualizar jogo
-- `DELETE /api/jogos/:id` - Remover jogo
+### Animais
+- `GET /api/animais` - Listar todos os animais
+- `GET /api/animais/:id` - Buscar animal por ID
+- `POST /api/animais` - Criar novo animal (campos: nome, especie, preco, disponivel)
+- `PUT /api/animais/:id` - Atualizar animal
+- `DELETE /api/animais/:id` - Remover animal
 
-### Empréstimos
-- `GET /api/emprestimos` - Listar todos os empréstimos
-- `GET /api/emprestimos/:id` - Buscar empréstimo por ID
-- `POST /api/emprestimos` - Criar novo empréstimo (campos: jogoId, usuario, dataEmprestimo, devolvido)
-- `PUT /api/emprestimos/:id` - Atualizar empréstimo
-- `DELETE /api/emprestimos/:id` - Remover empréstimo
+### Vendas
+- `GET /api/vendas` - Listar todas as vendas
+- `GET /api/vendas/:id` - Buscar venda por ID
+- `POST /api/vendas` - Criar nova venda (campos: animalId, cliente, dataVenda, quantidade)
+- `PUT /api/vendas/:id` - Atualizar venda
+- `DELETE /api/vendas/:id` - Remover venda
 
 ## Estrutura do Projeto
 
@@ -50,11 +50,11 @@ Este projeto é uma aplicação full-stack para gerenciamento de jogos e emprés
 api-jogos/
 ├── index.js
 ├── routes/
-│   ├── jogos.js
-│   └── emprestimos.js
+│   ├── animais.js
+│   └── vendas.js
 ├── data/
-│   ├── jogos.json
-│   └── emprestimos.json
+│   ├── animais.json
+│   └── vendas.json
 ├── public/
 │   ├── index.html
 │   ├── style.css

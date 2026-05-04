@@ -1,95 +1,95 @@
-// Funções para Jogos
-async function carregarJogos() {
+// Funções para Animais
+async function carregarAnimais() {
   try {
-    const response = await fetch('/api/jogos');
-    const jogos = await response.json();
-    const lista = document.getElementById('listaJogos');
+    const response = await fetch('/api/animais');
+    const animais = await response.json();
+    const lista = document.getElementById('listaAnimais');
     lista.innerHTML = '';
-    jogos.forEach(jogo => {
+    animais.forEach(animal => {
       const li = document.createElement('li');
-      li.textContent = `${jogo.id}: ${jogo.titulo} - ${jogo.genero} (${jogo.ano}) - ${jogo.disponivel ? 'Disponível' : 'Indisponível'}`;
+      li.textContent = `${animal.id}: ${animal.nome} - ${animal.especie} - R$ ${animal.preco} - ${animal.disponivel ? 'Disponível' : 'Indisponível'}`;
       lista.appendChild(li);
     });
   } catch (error) {
-    console.error('Erro ao carregar jogos:', error);
+    console.error('Erro ao carregar animais:', error);
   }
 }
 
-document.getElementById('carregarJogos').addEventListener('click', carregarJogos);
+document.getElementById('carregarAnimais').addEventListener('click', carregarAnimais);
 
-document.getElementById('formJogo').addEventListener('submit', async (e) => {
+document.getElementById('formAnimal').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const titulo = document.getElementById('titulo').value;
-  const genero = document.getElementById('genero').value;
-  const ano = parseInt(document.getElementById('ano').value);
+  const nome = document.getElementById('nome').value;
+  const especie = document.getElementById('especie').value;
+  const preco = parseFloat(document.getElementById('preco').value);
   const disponivel = document.getElementById('disponivel').checked;
 
   try {
-    const response = await fetch('/api/jogos', {
+    const response = await fetch('/api/animais', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ titulo, genero, ano, disponivel })
+      body: JSON.stringify({ nome, especie, preco, disponivel })
     });
     const result = await response.json();
-    const msg = document.getElementById('mensagemJogo');
+    const msg = document.getElementById('mensagemAnimal');
     if (response.ok) {
-      msg.textContent = 'Jogo cadastrado com sucesso!';
+      msg.textContent = 'Animal cadastrado com sucesso!';
       msg.className = 'mensagem-sucesso';
-      document.getElementById('formJogo').reset();
-      carregarJogos();
+      document.getElementById('formAnimal').reset();
+      carregarAnimais();
     } else {
       msg.textContent = result.error;
       msg.className = 'mensagem-erro';
     }
   } catch (error) {
-    console.error('Erro ao cadastrar jogo:', error);
+    console.error('Erro ao cadastrar animal:', error);
   }
 });
 
-// Funções para Empréstimos
-async function carregarEmprestimos() {
+// Funções para Vendas
+async function carregarVendas() {
   try {
-    const response = await fetch('/api/emprestimos');
-    const emprestimos = await response.json();
-    const lista = document.getElementById('listaEmprestimos');
+    const response = await fetch('/api/vendas');
+    const vendas = await response.json();
+    const lista = document.getElementById('listaVendas');
     lista.innerHTML = '';
-    emprestimos.forEach(emprestimo => {
+    vendas.forEach(venda => {
       const li = document.createElement('li');
-      li.textContent = `${emprestimo.id}: Jogo ${emprestimo.jogoId} - ${emprestimo.usuario} (${emprestimo.dataEmprestimo}) - ${emprestimo.devolvido ? 'Devolvido' : 'Emprestado'}`;
+      li.textContent = `${venda.id}: Animal ${venda.animalId} - ${venda.cliente} (${venda.dataVenda}) - Qtd: ${venda.quantidade}`;
       lista.appendChild(li);
     });
   } catch (error) {
-    console.error('Erro ao carregar empréstimos:', error);
+    console.error('Erro ao carregar vendas:', error);
   }
 }
 
-document.getElementById('carregarEmprestimos').addEventListener('click', carregarEmprestimos);
+document.getElementById('carregarVendas').addEventListener('click', carregarVendas);
 
-document.getElementById('formEmprestimo').addEventListener('submit', async (e) => {
+document.getElementById('formVenda').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const jogoId = parseInt(document.getElementById('jogoId').value);
-  const usuario = document.getElementById('usuario').value;
-  const dataEmprestimo = document.getElementById('dataEmprestimo').value;
-  const devolvido = document.getElementById('devolvido').checked;
+  const animalId = parseInt(document.getElementById('animalId').value);
+  const cliente = document.getElementById('cliente').value;
+  const dataVenda = document.getElementById('dataVenda').value;
+  const quantidade = parseInt(document.getElementById('quantidade').value);
 
   try {
-    const response = await fetch('/api/emprestimos', {
+    const response = await fetch('/api/vendas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ jogoId, usuario, dataEmprestimo, devolvido })
+      body: JSON.stringify({ animalId, cliente, dataVenda, quantidade })
     });
     const result = await response.json();
-    const msg = document.getElementById('mensagemEmprestimo');
+    const msg = document.getElementById('mensagemVenda');
     if (response.ok) {
-      msg.textContent = 'Empréstimo cadastrado com sucesso!';
+      msg.textContent = 'Venda cadastrada com sucesso!';
       msg.className = 'mensagem-sucesso';
-      document.getElementById('formEmprestimo').reset();
-      carregarEmprestimos();
+      document.getElementById('formVenda').reset();
+      carregarVendas();
     } else {
       msg.textContent = result.error;
       msg.className = 'mensagem-erro';
     }
   } catch (error) {
-    console.error('Erro ao cadastrar empréstimo:', error);
+    console.error('Erro ao cadastrar venda:', error);
   }
 });
